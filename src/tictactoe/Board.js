@@ -81,12 +81,27 @@ export default function Board() {
         return null;
     }
 
+    function init() {
+        setNextPlayer("X");
+        setStatus("Playing: X");
+        setSquares([
+            [null,null,null],
+            [null,null,null],
+            [null,null,null],
+        ]);
+        setWin(false);
+    }
+
     return (
         <>
             <div className="status">{status}</div>
             <div className="board">
                 {board}
             </div>
+            <button
+            hidden={!win}
+            onClick={init}
+            >restart</button>
         </>
     )
 }
