@@ -1,0 +1,25 @@
+.minesweeper .cell {
+    width:32px;
+    height:32px;
+    border:1px solid #ddd;
+    background:none;
+}
+
+.minesweeper .cell:active {
+    background:white;
+}
+
+.minesweeper .row {
+    display:flex;
+    flex-direction: row;
+}
+.minesweeper .board {
+    max-width:fit-content;
+    margin:16px auto;
+    display:flex;
+    flex-direction:column;
+}
+
+.minesweeper {
+    margin:8px auto;
+}

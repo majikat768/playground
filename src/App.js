@@ -1,11 +1,19 @@
 import logo from './logo.svg';
-import './App.css';
-import Board from './tictactoe/Board';
+import { Tictactoe } from './tictactoe/Tictactoe';
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import { NavBar } from './NavBar';
+import { Minesweeper } from './minesweeper/Minesweeper';
 
 function App() {
   return (
     <div className="App">
-    <Board/>
+      <BrowserRouter>
+        <NavBar></NavBar>
+        <Routes>
+          <Route path="/tictactoe" element={<Tictactoe />} />
+          <Route path="/minesweeper" element={<Minesweeper />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }

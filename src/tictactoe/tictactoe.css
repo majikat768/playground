@@ -1,0 +1,27 @@
+.tictactoe .cell {
+  font-family: monospace;
+  font-size:32px;
+  background:none;
+  border:1px solid #ddd;
+  color:#ddd;
+  border-radius:0;
+  width:64px;
+  height:64px;
+}
+.tictactoe .cell:active:not(:disabled) {
+  background:white;
+}
+.tictactoe .board {
+  display:flex;
+  flex-direction: column;
+  max-width: fit-content;
+  margin:16px auto;
+}
+.tictactoe .row {
+  display:flex;
+  flex-direction: row;
+}
+
+.tictactoe {
+  margin:8px auto;
+}
