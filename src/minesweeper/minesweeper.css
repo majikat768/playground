@@ -1,12 +1,21 @@
 .minesweeper .cell {
     width:32px;
     height:32px;
-    border:1px solid #ddd;
+    border:2px outset #ddd;
     background:none;
+    text-align: center;
+    vertical-align: middle;
+    color:#0ff;
+    user-select: none;
+}
+.minesweeper .cell:disabled {
+    border:2px solid #bbb;
+    background:#4448;
 }
 
-.minesweeper .cell:active {
-    background:white;
+.minesweeper .cell:active:not(:disabled) {
+    background:#aaa;
+    border:2px inset #ddd;
 }
 
 .minesweeper .row {
