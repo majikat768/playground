@@ -10,6 +10,10 @@ export function Minesweeper() {
     const [cells, setCells] = useState(init_cells(cols, rows));
     const [gameover, setGameover] = useState(false);
 
+    function restart() {
+        setCells(init_cells(cols,rows));
+        setGameover(false);
+    }
     function init_cells(cols, rows) {
         let cells = [];
         for (let i = 0; i < cols; i++) {
@@ -65,6 +69,9 @@ export function Minesweeper() {
         <div className={gameover ? "board gameover" : "board"}>
             {board}
         </div>
+        <button
+        onClick={restart}
+        >restart</button>
     </div>
 
     function handleClick(e, x, y) {
