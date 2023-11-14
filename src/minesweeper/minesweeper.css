@@ -8,7 +8,7 @@
     color:#0ff;
     user-select: none;
 }
-.minesweeper .cell.clicked {
+.minesweeper .cell.clicked:not(.flagged) {
     border:2px solid #bbb;
     background:#4448;
 }
