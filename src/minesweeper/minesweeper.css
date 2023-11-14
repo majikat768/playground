@@ -8,12 +8,15 @@
     color:#0ff;
     user-select: none;
 }
-.minesweeper .cell:disabled {
+.minesweeper .cell.clicked {
     border:2px solid #bbb;
     background:#4448;
 }
+.minesweeper .cell.clicked.mine:not(.flagged) {
+    background:#c22c;
+}
 
-.minesweeper .cell:active:not(:disabled) {
+.minesweeper .cell:active:not(.clicked) {
     background:#aaa;
     border:2px inset #ddd;
 }
@@ -27,6 +30,9 @@
     margin:16px auto;
     display:flex;
     flex-direction:column;
+}
+.minesweeper .board.gameover {
+    pointer-events: none;
 }
 
 .minesweeper {

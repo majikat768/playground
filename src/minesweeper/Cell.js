@@ -1,50 +1,53 @@
 import { useState } from "react";
 
-export function Cell({ x, y, mine, neighbors, onCellClick }) {
-    const [clicked, setClicked] = useState(false);
-    const [flagged, setFlagged] = useState(false);
-    const [label, setLabel] = useState(null);
+export function Cell({ x, y, neighbors, clicked, mine, flagged, label, onCellClick }) {
 
+    var className = "cell";
+    if(clicked) {
+        className += " clicked";
+        if(mine) {
+            className += " mine";
+        }
+        if(flagged) {
+            className += " flagged";
+        }
+    }
     return <button
-        className="cell"
+        className={className}
         id={"c"+x+"_"+y}
-        disabled={clicked}
         onClick={
             (e) => {
-                click(e);
+                onCellClick(e,x,y)
             }
         }
         onContextMenu={
             (e) => {
-                if (!clicked) {
-                    flag(e);
-                }
+                onCellClick(e,x,y)
             }
         }
     >{label}</button>
 
+/*
     function flag(e) {
         e.preventDefault();
         if (flagged) {
-            setFlagged(false);
             setLabel(null);
         } else {
-            setFlagged(true);
             setLabel("🚩");
         }
     }
     function click(e) {
         if (!clicked) {
-            setClicked(true);
             if (neighbors == -1) {
                 setLabel("💣");
             } else {
                 if (neighbors > 0) {
                     setLabel(neighbors);
                 }
-                onCellClick(e, x, y, mine);
+                onCellClick(e, x, y);
             }
         }
 
     }
+    */
 }
