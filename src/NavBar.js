@@ -5,13 +5,13 @@ export function NavBar() {
     return (
         <div className="navBar">
             <div className="link">
-                <Link to="/">Home</Link>
+                <Link to="/playground/">Home</Link>
             </div>
             <div className="link">
-                <Link to="/tictactoe">Tic Tac Toe</Link>
+                <Link to="/playground/tictactoe">Tic Tac Toe</Link>
             </div>
             <div className="link">
-                <Link to="/minesweeper">Minesweeper</Link>
+                <Link to="/playground/minesweeper">Minesweeper</Link>
             </div>
         </div>
     )

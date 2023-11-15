@@ -10,8 +10,8 @@ function App() {
       <BrowserRouter>
         <NavBar></NavBar>
         <Routes>
-          <Route path="/tictactoe" element={<Tictactoe />} />
-          <Route path="/minesweeper" element={<Minesweeper />} />
+          <Route path="/playground/tictactoe" element={<Tictactoe />} />
+          <Route path="/playground/minesweeper" element={<Minesweeper />} />
         </Routes>
       </BrowserRouter>
     </div>

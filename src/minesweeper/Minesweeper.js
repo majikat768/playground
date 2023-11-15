@@ -7,12 +7,19 @@ export function Minesweeper() {
     const cols = 12;
     const rows = 8;
     const n_mines = 10;
+    var mines_left = n_mines;
+
     const [cells, setCells] = useState(init_cells(cols, rows));
+    const [cellsLeft, setCellsLeft] = useState((cols*rows)-n_mines);
     const [gameover, setGameover] = useState(false);
+    const [status,setStatus] = useState(null);
 
     function restart() {
         setCells(init_cells(cols,rows));
+        mines_left = n_mines;
+        setCellsLeft((cols*rows)-n_mines);
         setGameover(false);
+        setStatus(null);
     }
     function init_cells(cols, rows) {
         let cells = [];
@@ -66,6 +73,7 @@ export function Minesweeper() {
     }
 
     return <div className="minesweeper">
+    <div className="status">{status}</div>
         <div className={gameover ? "board gameover" : "board"}>
             {board}
         </div>
@@ -95,12 +103,24 @@ export function Minesweeper() {
         else if (e.type == 'click') {
             if (!newCells[x][y].clicked && !newCells[x][y].flagged) {
                 newCells = reveal(newCells, x,y);
-                if(!gameover && newCells[x][y].neighbors == 0 && !newCells[x][y].mine) {
-                }
 
             }
         }
         setCells(newCells);
+        let left = 0;
+        for(let i = 0; i < cells.length; i++) {
+            for(let j = 0; j < cells[0].length; j++) {
+                if(!cells[i][j].clicked && !cells[i][j].mine) {
+                    left += 1;
+                }
+            }
+        }
+        setCellsLeft(left);
+        if(left == 0) {
+            console.log('win');
+            setStatus("win!");
+            setGameover(true);
+        }
     }
 
     function reveal(newCells, x, y) {
